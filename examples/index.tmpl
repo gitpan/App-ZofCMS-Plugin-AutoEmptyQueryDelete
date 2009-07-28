@@ -1,0 +1,18 @@
+{
+    body => \'index.tmpl',
+    title => '',
+
+    plugins => [
+        { AutoEmptyQueryDelete => 100 },
+        { Sub => 200 },
+    ],
+
+    plug_sub => sub {
+        my ( $t, $q ) = @_;
+
+        use Data::Dumper;
+        die Dumper $q;
+    },
+
+}
+
