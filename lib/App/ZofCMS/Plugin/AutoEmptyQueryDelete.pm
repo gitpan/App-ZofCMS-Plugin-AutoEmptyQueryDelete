@@ -3,7 +3,7 @@ package App::ZofCMS::Plugin::AutoEmptyQueryDelete;
 use warnings;
 use strict;
 
-our $VERSION = '0.0102';
+our $VERSION = '1.001001';
 
 sub new { bless {}, shift }
 
@@ -14,7 +14,7 @@ sub process {
     for ( keys %$q ) {
         push @delete, $_
             unless defined $q->{$_}
-                and length $q->{$_};
+                and $q->{$_} =~ /\S/;
     }
 
     delete @$q{ @delete };
@@ -43,7 +43,7 @@ constantly writing this (where C<$q> is query parameters hashref):
 
     do_something
         if defined $q->{foo}
-            and length $q->{foo};
+            and $q->{foo} =~ /\S/;
 
 By simply including this module in the list of plugins to run, I can save a few keystrokes
 by writing:
@@ -55,9 +55,7 @@ This documentation assumes you've read L<App::ZofCMS>, L<App::ZofCMS::Config> an
 
 =head1 WHAT DOES THE PLUGIN DO
 
-The plugin doesn't do much, but simply C<delete()>s query parameters that are not defined
-or are of zero length if they are. With that being done, we can use a simple C<exists()>
-on a key.
+The plugin doesn't do much, but simply C<delete()>s query parameters that don't contain non-whitespace characters. With that being done, we can use a simple C<exists()> on a key.
 
 =head1 USING THE PLUGIN
 

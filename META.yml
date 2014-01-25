@@ -1,24 +1,22 @@
 ---
 abstract: 'automatically delete empty keys from query parameters'
 author:
-  - "'Zoffix <'zoffix@cpan.org'>"
+  - 'Zoffix Znet <cpan@zoffix.com>'
 build_requires:
   Test::More: 0
 configure_requires:
-  Module::Build: 0
-dynamic_config: 1
-generated_by: 'Module::Build version 0.4007, CPAN::Meta::Converter version 2.132830'
+  ExtUtils::MakeMaker: 6.30
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 5.012, CPAN::Meta::Converter version 2.132830'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: App-ZofCMS-Plugin-AutoEmptyQueryDelete
-provides:
-  App::ZofCMS::Plugin::AutoEmptyQueryDelete:
-    file: lib/App/ZofCMS/Plugin/AutoEmptyQueryDelete.pm
-    version: 0.0102
 requires:
-  perl: 5.006
+  strict: 0
+  warnings: 0
 resources:
-  license: http://dev.perl.org/licenses/
-version: 0.0102
+  bugtracker: https://github.com/zoffixznet/App-ZofCMS-Plugin-AutoEmptyQueryDelete/issues
+  repository: git://github.com/zoffixznet/App-ZofCMS-Plugin-AutoEmptyQueryDelete.git
+version: 1.001001
